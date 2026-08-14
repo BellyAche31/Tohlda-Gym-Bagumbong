@@ -15,7 +15,7 @@ Open `index.html` in a browser and it works.
 | 1 | **Phone / mobile number** | `index.html` → `.quickbar` third `.qb-item` | Missing — currently points to Facebook |
 | 2 | **Google Maps embed URL** | `index.html` → `#location` `<iframe src>` | Buttons use the official share link; the iframe still uses a name search |
 | 3 | **Opening hours** | `index.html` `#hours` table **and** `assets/js/main.js` `HOURS` array **and** the JSON-LD block | From a public listing — please confirm |
-| 4 | **Logo font** | `assets/css/style.css` → `--f-display` | Using Archivo Black, matched to the "Challenge Accepted" wall lettering |
+| 4 | **Heading font** | `assets/css/style.css` → `--f-display` | Archivo Black, matched to the "Challenge Accepted" wall lettering. The logo itself is the real artwork, so no font substitution there. |
 | 5 | **Equipment count** ("40+") | `index.html` → `.stats` | Estimated from photos |
 
 ### Confirmed and already in the site
@@ -76,6 +76,9 @@ While there, grab the coordinates and add them to the JSON-LD block:
   ARIA labelling, semantic landmarks, and full `prefers-reduced-motion` support.
 - **Fast** — 9 photos re-encoded from ~11 MB each down to ~3.9 MB total, lazy-loaded
   below the fold, hero image preloaded. No JS framework.
+- **The real logo** — extracted from the supplied artwork into transparent
+  `logo-white.png` / `logo-black.png` for either ground, plus `logo-square.png`
+  as the favicon and touch icon.
 - **Strictly black and white** — matching the gym's own identity. Every photo is
   rendered in greyscale, and the accent colour flips from black to white inside
   dark sections via a single CSS variable, so contrast holds everywhere.
@@ -88,7 +91,7 @@ While there, grab the coordinates and add them to the JSON-LD block:
 index.html              Whole site
 assets/css/style.css    All styling
 assets/js/main.js       Nav, scroll-spy, hours logic, lightbox, copy-address
-assets/img/             9 optimised photos (full + -sm thumbnails) and the favicon
+assets/img/             9 optimised photos (full + -sm thumbnails) and the logo set
 robots.txt, sitemap.xml SEO
 404.html                Fallback page
 ```
@@ -117,3 +120,5 @@ If you use a custom domain later, update the `canonical`, `og:url`, `url` and
   `-sm` version, then update the `src` and `data-full` attributes on that `.g-item`.
 - **Change the display font** — `assets/css/style.css`, the `--f-display` variable at the top,
   and the Google Fonts `<link>` in `index.html`.
+- **Resize the logo** — `assets/css/style.css`, `.brand-logo` height. It's a three-line
+  stacked lockup, so `--header-h` needs to stay comfortably taller than it.
