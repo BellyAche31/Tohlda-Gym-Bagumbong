@@ -14,8 +14,11 @@
   --text-soft:#54545f;
   --text-inv:#f2f2f5;
   --text-inv-soft:#a2a2b0;
-  --accent:#e3271f;
-  --accent-hi:#ff4136;
+  /* Monochrome only — the gym's own black-and-white identity.
+     --accent flips to white inside dark sections (see the override below),
+     so every accented element stays legible on whichever ground it sits. */
+  --accent:#0d0d0f;
+  --accent-hi:#000000;
   --accent-ink:#ffffff;
 
   --wrap:1200px;
@@ -28,6 +31,13 @@
   --f-body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 
   --header-h:74px;
+}
+
+/* Dark grounds invert the accent so it reads as white-on-black. */
+.site-header,.hero,.quickbar,.section-dark,.cta,.site-footer,.lightbox{
+  --accent:#ffffff;
+  --accent-hi:#d7d7de;
+  --accent-ink:#0d0d0f;
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -78,7 +88,7 @@ p{margin:0 0 1.05em}
 }
 .skip-link:focus{left:0}
 
-:focus-visible{outline:3px solid var(--accent-hi);outline-offset:3px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;box-shadow:0 0 0 6px rgba(128,128,128,.35)}
 
 .eyebrow{
   font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
@@ -105,7 +115,7 @@ p{margin:0 0 1.05em}
 .btn-block{display:flex;width:100%}
 
 .btn-accent{--btn-bg:var(--accent);--btn-fg:var(--accent-ink);--btn-bd:var(--accent)}
-.btn-accent:hover{--btn-bg:var(--accent-hi);--btn-bd:var(--accent-hi);box-shadow:0 12px 26px rgba(227,39,31,.34)}
+.btn-accent:hover{--btn-bg:var(--accent-hi);--btn-bd:var(--accent-hi);box-shadow:0 12px 26px rgba(0,0,0,.30)}
 
 .btn-ghost{--btn-bg:transparent;--btn-fg:var(--text);--btn-bd:currentColor}
 .btn-ghost:hover{--btn-bg:var(--text);--btn-fg:var(--paper)}
@@ -130,7 +140,7 @@ p{margin:0 0 1.05em}
 .brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--text-inv)}
 .brand-mark{
   display:grid;place-items:center;width:38px;height:38px;flex:0 0 auto;
-  background:var(--accent);color:#fff;font-family:var(--f-display);font-size:1.25rem;
+  background:var(--accent);color:var(--accent-ink);font-family:var(--f-display);font-size:1.25rem;
   border-radius:var(--r);line-height:1;
 }
 .brand-text{display:flex;flex-direction:column;line-height:1.1}
@@ -139,18 +149,19 @@ p{margin:0 0 1.05em}
 
 .nav{display:flex;align-items:center;gap:.35rem}
 .nav a{
-  text-decoration:none;color:var(--text-inv);
+  text-decoration:none;
   font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
   padding:.55rem .7rem;border-radius:var(--r);position:relative;
   transition:color .15s ease,background-color .15s ease;
 }
+.nav a:not(.btn){color:var(--text-inv)}
 .nav a:not(.btn):hover{color:var(--accent-hi)}
 .nav a:not(.btn)::after{
   content:"";position:absolute;left:.7rem;right:.7rem;bottom:.28rem;height:2px;
   background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .2s ease;
 }
 .nav a:not(.btn):hover::after,.nav a:not(.btn).active::after{transform:scaleX(1)}
-.nav a.active{color:#fff}
+.nav a:not(.btn).active{color:#fff}
 .nav-cta{margin-left:.5rem}
 
 .nav-toggle{
@@ -168,7 +179,7 @@ p{margin:0 0 1.05em}
   padding:calc(var(--header-h) + 4rem) 0 5rem;color:var(--text-inv);isolation:isolate;
 }
 .hero-media{position:absolute;inset:0;z-index:-2;overflow:hidden}
-.hero-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(1.05) brightness(.72)}
+.hero-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08) brightness(.68)}
 .hero-overlay{
   position:absolute;inset:0;z-index:-1;
   background:
@@ -180,10 +191,10 @@ p{margin:0 0 1.05em}
   font-size:clamp(3rem,10.5vw,7.5rem);line-height:.9;margin:0 0 1.1rem;letter-spacing:-.03em;
 }
 .hero-title .outline{
-  color:transparent;-webkit-text-stroke:2px var(--accent-hi);
+  color:transparent;-webkit-text-stroke:2px var(--accent);
   paint-order:stroke fill;
 }
-@supports not (-webkit-text-stroke:1px red){ .hero-title .outline{color:var(--accent-hi)} }
+@supports not (-webkit-text-stroke:1px red){ .hero-title .outline{color:var(--accent)} }
 
 .hero-sub{
   font-size:clamp(1rem,1.4vw,1.2rem);max-width:56ch;color:#dcdce4;margin-bottom:2rem;
@@ -237,7 +248,7 @@ p{margin:0 0 1.05em}
 .stat span{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-soft)}
 
 .framed{margin:0;position:relative}
-.framed img{border-radius:var(--r-lg);box-shadow:var(--shadow);width:100%}
+.framed img{border-radius:var(--r-lg);box-shadow:var(--shadow);width:100%;filter:grayscale(1) contrast(1.05)}
 .framed::before{
   content:"";position:absolute;inset:-14px -14px 34px 34px;border:2px solid var(--accent);
   border-radius:var(--r-lg);z-index:-1;
@@ -253,7 +264,7 @@ p{margin:0 0 1.05em}
 .card:hover{transform:translateY(-5px);border-color:var(--accent);background:var(--ink-3)}
 .card-ico{
   width:46px;height:46px;display:grid;place-items:center;border-radius:var(--r);
-  background:rgba(227,39,31,.14);margin-bottom:1.1rem;
+  background:rgba(255,255,255,.10);margin-bottom:1.1rem;
 }
 .card-ico svg{width:24px;height:24px;fill:var(--accent-hi)}
 .card h3{margin-bottom:.5rem}
@@ -267,7 +278,7 @@ p{margin:0 0 1.05em}
   transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
 }
 .price-card:hover{transform:translateY(-5px);border-color:var(--text);box-shadow:var(--shadow-sm)}
-.price-card.featured{border-color:var(--accent);box-shadow:0 16px 40px rgba(227,39,31,.16)}
+.price-card.featured{border-color:var(--accent);box-shadow:0 16px 40px rgba(0,0,0,.14)}
 .ribbon{
   position:absolute;top:-.85rem;left:1.6rem;background:var(--accent);color:#fff;
   font-size:.64rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
@@ -284,6 +295,67 @@ p{margin:0 0 1.05em}
   border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg);
 }
 
+/* ---------- Annual membership note ---------- */
+.annual-note{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;
+  background:var(--ink);color:var(--text-inv);
+  border-radius:var(--r-lg);padding:1.75rem 1.9rem;margin-bottom:1.6rem;
+}
+.annual-note h3{color:#fff;margin-bottom:.4rem}
+.annual-note>div p{margin:0;color:var(--text-inv-soft);font-size:.94rem;max-width:62ch}
+.annual-note strong{color:#fff}
+.annual-note .annual-price{
+  font-family:var(--f-display);font-size:2.9rem;line-height:1;letter-spacing:-.02em;
+  color:#fff;white-space:nowrap;margin:0;
+}
+.annual-price .cur{font-size:1.25rem;vertical-align:.5em;margin-right:.06em}
+.annual-price small{
+  font-family:var(--f-body);font-size:.75rem;font-weight:600;letter-spacing:.05em;
+  color:var(--text-inv-soft);margin-left:.35rem;
+}
+
+/* ---------- Rate lists ---------- */
+.rate-list{list-style:none;padding:0;margin:0 0 1.6rem}
+.rate-list li{
+  display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+  padding:.75rem 0;border-bottom:1px solid var(--paper-3);
+}
+.rate-list li:last-child{border-bottom:0}
+.rate-list span{font-size:.92rem}
+.rate-list em{
+  display:block;font-style:normal;font-size:.74rem;color:var(--text-soft);
+  letter-spacing:.02em;margin-top:.15rem;
+}
+.rate-list b{
+  font-family:var(--f-display);font-size:1.3rem;letter-spacing:-.01em;white-space:nowrap;
+}
+.price-card .btn-block{margin-top:auto}
+.price-hint{
+  font-size:.82rem;color:var(--text-soft);
+  border-left:2px solid var(--accent);padding-left:.85rem;margin:1.2rem 0 1.6rem;
+}
+
+/* ---------- House rules ---------- */
+.rules{
+  margin-top:3.25rem;padding:2rem 1.9rem;
+  border:2px solid var(--paper-3);border-radius:var(--r-lg);
+}
+.rules h3{margin-bottom:1.1rem}
+.rules ol{
+  margin:0;padding:0;list-style:none;counter-reset:rule;
+  columns:2;column-gap:2.5rem;
+}
+.rules li{
+  counter-increment:rule;position:relative;padding-left:2rem;margin-bottom:.7rem;
+  font-size:.92rem;break-inside:avoid;
+}
+.rules li::before{
+  content:counter(rule,decimal-leading-zero);
+  position:absolute;left:0;top:.05em;
+  font-family:var(--f-display);font-size:.78rem;color:var(--text-soft);
+}
+@media (max-width:640px){ .rules ol{columns:1} }
+
 /* ---------- Gallery ---------- */
 .gallery{
   display:grid;grid-template-columns:repeat(4,1fr);
@@ -293,12 +365,12 @@ p{margin:0 0 1.05em}
   padding:0;border:0;background:var(--ink-3);cursor:zoom-in;overflow:hidden;
   border-radius:var(--r-lg);position:relative;
 }
-.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease,filter .35s ease;filter:grayscale(.28)}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease,filter .35s ease;filter:grayscale(1) contrast(1.05)}
 .g-item::after{
   content:"";position:absolute;inset:0;border:2px solid transparent;border-radius:var(--r-lg);
   transition:border-color .25s ease;pointer-events:none;
 }
-.g-item:hover img,.g-item:focus-visible img{transform:scale(1.07);filter:grayscale(0)}
+.g-item:hover img,.g-item:focus-visible img{transform:scale(1.07);filter:grayscale(1) contrast(1.15) brightness(1.06)}
 .g-item:hover::after{border-color:var(--accent)}
 /* Hero tile is 2x2; the remaining eight 1x1 tiles fill the grid exactly
    at 4, 3 and 2 columns — no holes at any breakpoint. */
@@ -310,7 +382,7 @@ p{margin:0 0 1.05em}
 .hours-table th{font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem}
 .hours-table td{text-align:right;font-variant-numeric:tabular-nums;color:var(--text-soft)}
 .hours-table tr.today th,.hours-table tr.today td{color:var(--accent);font-weight:800}
-.hours-table tr.today{background:rgba(227,39,31,.05)}
+.hours-table tr.today{background:var(--paper-2)}
 
 .open-badge{
   display:inline-flex;align-items:center;gap:.55rem;
@@ -319,8 +391,8 @@ p{margin:0 0 1.05em}
 }
 .open-badge:empty{display:none}
 .open-badge::before{content:"";width:.6rem;height:.6rem;border-radius:50%;background:currentColor}
-.open-badge.is-open{color:#128c46}
-.open-badge.is-closed{color:var(--accent)}
+.open-badge.is-open{color:var(--text);background:var(--text);color:var(--paper);border-color:var(--text)}
+.open-badge.is-closed{color:var(--text-soft);background:transparent}
 
 /* ---------- Location ---------- */
 .location-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:1.6rem;align-items:start}
@@ -328,7 +400,7 @@ p{margin:0 0 1.05em}
   position:relative;aspect-ratio:16/10;border-radius:var(--r-lg);overflow:hidden;
   border:1px solid var(--line);background:var(--ink-3);
 }
-.map-embed iframe{position:absolute;inset:0;width:100%;height:100%;filter:grayscale(.25) contrast(1.05)}
+.map-embed iframe{position:absolute;inset:0;width:100%;height:100%;filter:grayscale(1) contrast(1.05)}
 .map-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.1rem}
 
 .visit-panel{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.85rem 1.6rem}
@@ -369,15 +441,19 @@ p{margin:0 0 1.05em}
 
 /* ---------- CTA ---------- */
 .cta{
-  background:var(--accent);color:#fff;padding:clamp(3.5rem,7vw,5.5rem) 0;
-  background-image:linear-gradient(135deg,var(--accent) 0%,#a81611 100%);
+  position:relative;isolation:isolate;color:#fff;padding:clamp(4.5rem,9vw,7rem) 0;
+  background:var(--ink) url("../img/plate-loaded-sm.jpg") center/cover no-repeat;
 }
-.cta-inner{text-align:center}
+.cta::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(8,8,10,.86),rgba(8,8,10,.92));
+  backdrop-filter:grayscale(1);-webkit-backdrop-filter:grayscale(1);
+}
+.cta-inner{text-align:center;position:relative}
 .cta h2{margin-bottom:.55rem;max-width:20ch;margin-inline:auto}
 .cta p{color:rgba(255,255,255,.86);margin-bottom:2rem}
 .cta-actions{display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center}
-.cta .btn-accent{--btn-bg:#fff;--btn-fg:var(--accent);--btn-bd:#fff}
-.cta .btn-accent:hover{--btn-bg:var(--ink);--btn-fg:#fff;--btn-bd:var(--ink);box-shadow:none}
+.cta p{color:#c9c9d4}
 
 /* ---------- Footer ---------- */
 .site-footer{background:var(--ink);color:var(--text-inv-soft);padding:4rem 0 1.75rem;font-size:.9rem}
@@ -405,7 +481,7 @@ p{margin:0 0 1.05em}
 .lightbox[hidden]{display:none}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
 .lb-figure{margin:0;max-width:min(1100px,100%);text-align:center}
-.lb-figure img{max-height:78vh;width:auto;margin-inline:auto;border-radius:var(--r-lg);box-shadow:var(--shadow)}
+.lb-figure img{max-height:78vh;filter:grayscale(1) contrast(1.05);width:auto;margin-inline:auto;border-radius:var(--r-lg);box-shadow:var(--shadow)}
 .lb-figure figcaption{color:#c9c9d4;margin-top:1rem;font-size:.88rem}
 .lb-close,.lb-nav{
   position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
