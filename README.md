@@ -79,9 +79,10 @@ While there, grab the coordinates and add them to the JSON-LD block:
 - **The real logo** — extracted from the supplied artwork into transparent
   `logo-white.png` / `logo-black.png` for either ground, plus `logo-square.png`
   as the favicon and touch icon.
-- **Strictly black and white** — matching the gym's own identity. Every photo is
-  rendered in greyscale, and the accent colour flips from black to white inside
-  dark sections via a single CSS variable, so contrast holds everywhere.
+- **Black-and-white interface, full-colour photography** — the type, buttons and
+  layout stay strictly monochrome to match the gym's identity, while the photos
+  run in full colour. The accent flips from black to white inside dark sections
+  via a single CSS variable, so contrast holds everywhere.
 - **Prints cleanly** and degrades gracefully with JavaScript disabled (the hours
   table, map and all content still work).
 
