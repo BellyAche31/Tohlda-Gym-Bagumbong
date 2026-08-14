@@ -56,7 +56,7 @@
   }
 
   /* ---------- Reveal on scroll ---------- */
-  var revealTargets = $$('.section-head, .about-copy, .about-media, .card, .price-card, .g-item, .visit-panel, .map-panel, .hours-table, .faq, .cta-inner');
+  var revealTargets = $$('.section-head, .about-copy, .about-media, .card, .price-card, .steps li, .g-item, .visit-panel, .map-panel, .hours-table, .faq, .cta-inner');
   if ('IntersectionObserver' in window) {
     revealTargets.forEach(function (el) { el.classList.add('reveal'); });
     var revealer = new IntersectionObserver(function (entries, obs) {
@@ -159,6 +159,7 @@
   var lb = $('#lightbox');
   var lbImg = $('#lbImg');
   var lbCap = $('#lbCap');
+  var lbCount = $('#lbCount');
   var index = 0;
   var lastFocused = null;
 
@@ -168,6 +169,19 @@
     lbImg.src = item.dataset.full;
     lbImg.alt = item.querySelector('img').alt;
     lbCap.textContent = item.dataset.caption || '';
+    if (lbCount) lbCount.textContent = (index + 1) + ' / ' + items.length;
+    preloadNeighbours();
+  }
+
+  // Warm the next and previous full-size images so arrowing through the
+  // gallery doesn't stall on a fresh download each time.
+  function preloadNeighbours() {
+    [index + 1, index - 1].forEach(function (i) {
+      var item = items[(i + items.length) % items.length];
+      if (!item) return;
+      var img = new Image();
+      img.src = item.dataset.full;
+    });
   }
 
   function openLb(i) {

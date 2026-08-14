@@ -16,7 +16,7 @@ Open `index.html` in a browser and it works.
 | 2 | **Google Maps embed URL** | `index.html` → `#location` `<iframe src>` | Buttons use the official share link; the iframe still uses a name search |
 | 3 | **Opening hours** | `index.html` `#hours` table **and** `assets/js/main.js` `HOURS` array **and** the JSON-LD block | From a public listing — please confirm |
 | 4 | **Heading font** | `assets/css/style.css` → `--f-display` | Archivo Black, matched to the "Challenge Accepted" wall lettering. The logo itself is the real artwork, so no font substitution there. |
-| 5 | **Equipment count** ("40+") | `index.html` → `.stats` | Estimated from photos |
+| 5 | **Machine count** | removed | The old "40+" was an estimate, so the stat row now uses verified figures instead. Send a real count and it can go back. |
 
 ### Confirmed and already in the site
 
@@ -57,6 +57,7 @@ While there, grab the coordinates and add them to the JSON-LD block:
 | About | The gym's story, floor layout, headline stats |
 | Facilities | 9 cards covering free weights, machines, cables, cardio, lockers, refuel station, security, PT, free WiFi |
 | Rates | Annual membership banner + Member / Non-Member / Personal Training rate cards |
+| First visit | Four-step walkthrough of what actually happens when you turn up |
 | Gallery | 9 real photos with a keyboard- and swipe-navigable lightbox |
 | Hours | Full weekly table, today's row highlighted, live **Open now / Closed** badge |
 | Location | Embedded Google Map, Directions / Maps / Waze / Copy-address buttons, travel notes |
@@ -74,8 +75,12 @@ While there, grab the coordinates and add them to the JSON-LD block:
 - **Responsive** — the photo grid reflows 4 → 3 → 2 columns with no gaps at any width.
 - **Accessible** — skip link, focus-visible outlines, focus-trapped lightbox,
   ARIA labelling, semantic landmarks, and full `prefers-reduced-motion` support.
-- **Fast** — 9 photos re-encoded from ~11 MB each down to ~3.9 MB total, lazy-loaded
-  below the fold, hero image preloaded. No JS framework.
+- **Fast** — photos re-encoded from ~11 MB each to ~2 MB total as WebP, in three
+  sizes with `srcset` so phones never download a desktop-sized image. Fonts are
+  self-hosted and preloaded (67 KB, latin subset), so there is no third-party
+  render-blocking request. No JS framework.
+- **Installable** — `site.webmanifest` lets members add the gym to their phone
+  home screen.
 - **The real logo** — extracted from the supplied artwork into transparent
   `logo-white.png` / `logo-black.png` for either ground, plus `logo-square.png`
   as the favicon and touch icon.
@@ -93,7 +98,9 @@ index.html              Whole site
 assets/css/style.css    All styling
 assets/js/main.js       Nav, scroll-spy, hours logic, lightbox, copy-address
 assets/img/             9 optimised photos (full + -sm thumbnails) and the logo set
+assets/fonts/           Self-hosted Archivo Black + Inter (latin, woff2)
 robots.txt, sitemap.xml SEO
+site.webmanifest        Add-to-home-screen metadata
 404.html                Fallback page
 ```
 

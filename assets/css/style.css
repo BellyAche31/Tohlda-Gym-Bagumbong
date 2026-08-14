@@ -2,6 +2,20 @@
    Tohlda Fitness Gym Bagumbong
    ============================================================ */
 
+/* Self-hosted, latin subset only. font-display:swap so text paints
+   immediately in the fallback rather than blocking on the download. */
+@font-face{
+  font-family:"Archivo Black";
+  src:url("../fonts/archivo-black-latin.woff2") format("woff2");
+  font-weight:400;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:"Inter";
+  src:url("../fonts/inter-latin-var.woff2") format("woff2-variations"),
+      url("../fonts/inter-latin-var.woff2") format("woff2");
+  font-weight:100 900;font-style:normal;font-display:swap;
+}
+
 :root{
   --ink:#0d0d0f;
   --ink-2:#16161a;
@@ -354,6 +368,31 @@ p{margin:0 0 1.05em}
 }
 @media (max-width:640px){ .rules ol{columns:1} }
 
+/* ---------- Section tint ---------- */
+.section-tint{background:var(--paper-2)}
+
+/* ---------- First-visit steps ---------- */
+.steps{
+  list-style:none;counter-reset:step;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.15rem;
+}
+.steps li{
+  position:relative;background:var(--paper);border:2px solid var(--paper-3);
+  border-radius:var(--r-lg);padding:1.9rem 1.5rem 1.6rem;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.steps li:hover{transform:translateY(-4px);border-color:var(--text);box-shadow:var(--shadow-sm)}
+.step-n{
+  display:block;font-family:var(--f-display);font-size:1.05rem;
+  color:var(--text-soft);letter-spacing:.04em;margin-bottom:.9rem;
+}
+.steps h3{margin-bottom:.45rem}
+.steps p{margin:0;font-size:.92rem;color:var(--text-soft)}
+.steps-note{
+  margin:2rem 0 0;font-size:.92rem;color:var(--text-soft);
+  border-left:2px solid var(--accent);padding-left:1rem;max-width:68ch;
+}
+
 /* ---------- Gallery ---------- */
 .gallery{
   display:grid;grid-template-columns:repeat(4,1fr);
@@ -487,6 +526,11 @@ p{margin:0 0 1.05em}
 }
 .lb-close{top:1.1rem;right:1.1rem;width:46px;height:46px;font-size:1.85rem;line-height:1}
 .lb-nav{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:2.1rem;line-height:1}
+.lb-count{
+  position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+  margin:0;color:#c9c9d4;font-size:.78rem;font-weight:700;letter-spacing:.16em;
+  font-variant-numeric:tabular-nums;
+}
 .lb-prev{left:1.1rem}
 .lb-next{right:1.1rem}
 .lb-close:hover,.lb-nav:hover{background:var(--accent);border-color:var(--accent)}
@@ -506,7 +550,7 @@ p{margin:0 0 1.05em}
   .gallery{grid-template-columns:repeat(3,1fr);grid-auto-rows:165px}
 }
 
-@media (max-width:860px){
+@media (max-width:980px){
   :root{--header-h:76px}
   .nav{
     position:fixed;inset:var(--header-h) 0 auto 0;flex-direction:column;align-items:stretch;

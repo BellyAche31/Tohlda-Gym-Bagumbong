@@ -1,0 +1,19 @@
+{
+  "name": "Tohlda Fitness Gym Bagumbong",
+  "short_name": "Tohlda Gym",
+  "description": "Weight training gym on Bagumbong Road, Caloocan City. Rates, hours, photos and directions.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d0d0f",
+  "theme_color": "#0d0d0f",
+  "lang": "en-PH",
+  "icons": [
+    {
+      "src": "assets/img/logo-square.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

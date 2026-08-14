@@ -4,26 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tohlda Fitness Gym Bagumbong — Weight Training Gym in Caloocan City</title>
-<meta name="description" content="Tohlda Fitness Gym Bagumbong is a full-equipment weight training gym on Bagumbong Road, Caloocan City. Free weights, plate-loaded machines, cable stations, cardio, lockers and personal training. Walk-ins welcome.">
+<meta name="description" content="Weight training gym on Bagumbong Road, Caloocan City. Walk-in ₱100, monthly from ₱800. Free weights, plate-loaded machines, cable stations, cardio, 24 lockers, free WiFi and personal training. Open 7 days.">
 <meta name="theme-color" content="#0d0d0f">
 <link rel="canonical" href="https://bellyache31.github.io/Tohlda-Gym-Bagumbong/">
 
-<!-- Open Graph / social sharing -->
+<!-- Open Graph / social sharing.
+     og:image MUST be absolute — Facebook and Messenger reject relative paths,
+     which matters because the gym shares its link there. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tohlda Fitness Gym Bagumbong">
 <meta property="og:title" content="Tohlda Fitness Gym Bagumbong — Challenge Accepted">
-<meta property="og:description" content="Full-equipment weight training gym on Bagumbong Road, Caloocan City. Free weights, machines, cardio, lockers, personal training. Walk-ins welcome.">
-<meta property="og:image" content="assets/img/gym-floor-wide.webp">
+<meta property="og:description" content="Full-equipment weight training gym on Bagumbong Road, Caloocan City. Walk-in ₱100, monthly from ₱800. Free weights, machines, cardio, lockers, free WiFi and personal training.">
+<meta property="og:url" content="https://bellyache31.github.io/Tohlda-Gym-Bagumbong/">
+<meta property="og:image" content="https://bellyache31.github.io/Tohlda-Gym-Bagumbong/assets/img/gym-floor-wide.webp">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="1125">
+<meta property="og:image:alt" content="The main training floor at Tohlda Fitness Gym Bagumbong">
 <meta property="og:locale" content="en_PH">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bellyache31.github.io/Tohlda-Gym-Bagumbong/assets/img/gym-floor-wide.webp">
 
 <link rel="icon" href="assets/img/logo-square.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/logo-square.png">
-<link rel="preload" as="image" href="assets/img/gym-floor-wide.webp" fetchpriority="high">
+<link rel="manifest" href="site.webmanifest">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800&display=swap">
+<!-- Fonts are self-hosted: no third-party render-blocking request, and no
+     dependency on a CDN reachable from the visitor's network. -->
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin-var.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-black-latin.woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/gym-floor-wide.webp" fetchpriority="high">
 
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -43,6 +52,7 @@
       <a href="#about">About</a>
       <a href="#facilities">Facilities</a>
       <a href="#rates">Rates</a>
+      <a href="#first-visit">First Visit</a>
       <a href="#gallery">Gallery</a>
       <a href="#hours">Hours</a>
       <a href="#location">Location</a>
@@ -61,7 +71,10 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="hero-media">
-    <img src="assets/img/gym-floor-wide.webp" alt="The main training floor at Tohlda Fitness Gym Bagumbong, lined with plate-loaded machines and cable stations" width="1800" height="1350" fetchpriority="high">
+    <img src="assets/img/gym-floor-wide.webp"
+         srcset="assets/img/gym-floor-wide-sm.webp 700w, assets/img/gym-floor-wide.webp 1500w"
+         sizes="100vw"
+         alt="The main training floor at Tohlda Fitness Gym Bagumbong, lined with plate-loaded machines and cable stations" width="1500" height="1125" fetchpriority="high">
   </div>
   <div class="hero-overlay"></div>
 
@@ -148,15 +161,18 @@
       </p>
 
       <div class="stats">
-        <div class="stat"><b>40+</b><span>Machines &amp; stations</span></div>
         <div class="stat"><b>7</b><span>Days open weekly</span></div>
-        <div class="stat"><b>3F</b><span>Whole-floor training space</span></div>
+        <div class="stat"><b>24</b><span>Lockers on the floor</span></div>
+        <div class="stat"><b>&#8369;80</b><span>Member rate per session</span></div>
       </div>
     </div>
 
     <div class="about-media">
       <figure class="framed">
-        <img src="assets/img/free-weights.webp" alt="Free weight area with benches, racks and mirrored wall reading Challenge Accepted" loading="lazy" width="1800" height="1350">
+        <img src="assets/img/free-weights.webp"
+             srcset="assets/img/free-weights-sm.webp 700w, assets/img/free-weights.webp 1500w"
+             sizes="(max-width: 980px) 92vw, 46vw"
+             alt="Free weight area with benches, racks and mirrored wall reading Challenge Accepted" loading="lazy" width="1500" height="1125">
         <figcaption>The free-weight side — racks, benches and the mirrored wall.</figcaption>
       </figure>
     </div>
@@ -312,6 +328,45 @@
   </div>
 </section>
 
+<!-- ============ FIRST VISIT ============ -->
+<section class="section section-tint" id="first-visit">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="eyebrow">New here</p>
+      <h2>Your first visit, start to finish.</h2>
+      <p class="section-sub">No booking, no sign-up form, no sales call. Here's the whole process.</p>
+    </header>
+
+    <ol class="steps">
+      <li>
+        <span class="step-n">01</span>
+        <h3>Just turn up</h3>
+        <p>Walk in any day during opening hours. Third floor of #536 Ramos Compound, beside Young Achievers' School.</p>
+      </li>
+      <li>
+        <span class="step-n">02</span>
+        <h3>Pay at the desk</h3>
+        <p>₱100 for a single session as a non-member. Training regularly? The ₱300 annual membership drops it to ₱80 and unlocks the monthly rates.</p>
+      </li>
+      <li>
+        <span class="step-n">03</span>
+        <h3>Stash your bag</h3>
+        <p>Grab one of the 24 lockers — bring your own padlock. Changing area and bench are on the same floor.</p>
+      </li>
+      <li>
+        <span class="step-n">04</span>
+        <h3>Train</h3>
+        <p>Full run of the floor: free weights, machines, cables and cardio. Free WiFi throughout, and ₱10 gets you unlimited water.</p>
+      </li>
+    </ol>
+
+    <p class="steps-note">
+      Bring closed rubber shoes, a towel and a padlock. That's genuinely it — wipe down what you use
+      and put the weights back, and you'll fit right in.
+    </p>
+  </div>
+</section>
+
 <!-- ============ GALLERY ============ -->
 <section class="section section-dark" id="gallery">
   <div class="wrap">
@@ -323,31 +378,31 @@
 
     <div class="gallery" id="gallery-grid">
       <button class="g-item g-wide" data-full="assets/img/gym-floor-wide.webp" data-caption="The main floor, looking down the length of the gym.">
-        <img src="assets/img/gym-floor-wide-sm.webp" alt="Wide view of the main training floor" loading="lazy" width="800" height="600">
+        <img srcset="assets/img/gym-floor-wide-xs.webp 420w, assets/img/gym-floor-wide-sm.webp 700w" sizes="(max-width: 640px) 50vw, (max-width: 1020px) 33vw, 25vw" src="assets/img/gym-floor-wide-sm.webp" alt="Wide view of the main training floor" loading="lazy" width="700" height="525">
       </button>
       <button class="g-item" data-full="assets/img/machines-area.webp" data-caption="Selectorized and plate-loaded machines by the windows.">
-        <img src="assets/img/machines-area-sm.webp" alt="Machine area with benches and cable stations" loading="lazy" width="800" height="600">
+        <img srcset="assets/img/machines-area-xs.webp 420w, assets/img/machines-area-sm.webp 700w" sizes="(max-width: 640px) 50vw, (max-width: 1020px) 33vw, 25vw" src="assets/img/machines-area-sm.webp" alt="Machine area with benches and cable stations" loading="lazy" width="700" height="525">
       </button>
       <button class="g-item" data-full="assets/img/cable-station.webp" data-caption="Dual cable crossover and functional trainer.">
-        <img src="assets/img/cable-station-sm.webp" alt="Cable crossover station" loading="lazy" width="800" height="600">
+        <img srcset="assets/img/cable-station-xs.webp 420w, assets/img/cable-station-sm.webp 700w" sizes="(max-width: 640px) 50vw, (max-width: 1020px) 33vw, 25vw" src="assets/img/cable-station-sm.webp" alt="Cable crossover station" loading="lazy" width="700" height="525">
       </button>
       <button class="g-item" data-full="assets/img/plate-loaded.webp" data-caption="Plate-loaded machines facing the Challenge Accepted wall.">
-        <img src="assets/img/plate-loaded-sm.webp" alt="Plate loaded machines in front of the Challenge Accepted mural" loading="lazy" width="600" height="800">
+        <img srcset="assets/img/plate-loaded-xs.webp 315w, assets/img/plate-loaded-sm.webp 525w" sizes="(max-width: 640px) 50vw, (max-width: 1020px) 33vw, 25vw" src="assets/img/plate-loaded-sm.webp" alt="Plate loaded machines in front of the Challenge Accepted mural" loading="lazy" width="525" height="700">
       </button>
       <button class="g-item" data-full="assets/img/free-weights.webp" data-caption="Free weights, racks and the mirrored wall.">
-        <img src="assets/img/free-weights-sm.webp" alt="Free weight area with mirrors and racks" loading="lazy" width="800" height="600">
+        <img srcset="assets/img/free-weights-xs.webp 420w, assets/img/free-weights-sm.webp 700w" sizes="(max-width: 640px) 50vw, (max-width: 1020px) 33vw, 25vw" src="assets/img/free-weights-sm.webp" alt="Free weight area with mirrors and racks" loading="lazy" width="700" height="525">
       </button>
       <button class="g-item" data-full="assets/img/cardio-frontdesk.webp" data-caption="Cardio bikes and the front desk with the refuel station.">
-        <img src="assets/img/cardio-frontdesk-sm.webp" alt="Cardio bikes near the front desk" loading="lazy" width="600" height="800">
+        <img srcset="assets/img/cardio-frontdesk-xs.webp 315w, assets/img/cardio-frontdesk-sm.webp 525w" sizes="(max-width: 640px) 50vw, (max-width: 1020px) 33vw, 25vw" src="assets/img/cardio-frontdesk-sm.webp" alt="Cardio bikes near the front desk" loading="lazy" width="525" height="700">
       </button>
       <button class="g-item" data-full="assets/img/leg-press.webp" data-caption="Leg machines, gym rules board and the free water station.">
-        <img src="assets/img/leg-press-sm.webp" alt="Leg press machine and water dispenser" loading="lazy" width="600" height="800">
+        <img srcset="assets/img/leg-press-xs.webp 315w, assets/img/leg-press-sm.webp 525w" sizes="(max-width: 640px) 50vw, (max-width: 1020px) 33vw, 25vw" src="assets/img/leg-press-sm.webp" alt="Leg press machine and water dispenser" loading="lazy" width="525" height="700">
       </button>
       <button class="g-item" data-full="assets/img/lockers.webp" data-caption="Steel lockers and changing area.">
-        <img src="assets/img/lockers-sm.webp" alt="Locker room with steel lockers and a bench" loading="lazy" width="600" height="800">
+        <img srcset="assets/img/lockers-xs.webp 315w, assets/img/lockers-sm.webp 525w" sizes="(max-width: 640px) 50vw, (max-width: 1020px) 33vw, 25vw" src="assets/img/lockers-sm.webp" alt="Locker room with steel lockers and a bench" loading="lazy" width="525" height="700">
       </button>
       <button class="g-item" data-full="assets/img/annex-benches.webp" data-caption="The open-air annex — benches, racks and stability balls.">
-        <img src="assets/img/annex-benches-sm.webp" alt="Open air annex with bench press and stability balls" loading="lazy" width="600" height="800">
+        <img srcset="assets/img/annex-benches-xs.webp 315w, assets/img/annex-benches-sm.webp 525w" sizes="(max-width: 640px) 50vw, (max-width: 1020px) 33vw, 25vw" src="assets/img/annex-benches-sm.webp" alt="Open air annex with bench press and stability balls" loading="lazy" width="525" height="700">
       </button>
     </div>
   </div>
@@ -429,10 +484,10 @@
           <dd>Directly beside <strong>Young Achievers' School</strong>. The entrance stairs are at the compound gate.</dd>
 
           <dt>By jeep / tricycle</dt>
-          <dd>Any Bagumbong-route jeep along Bagumbong Road — tell the driver "Young Achievers'". Tricycles from Zabarte and Camarin drop off at the gate.</dd>
+          <dd>Take any jeep or tricycle running along Bagumbong Road and get off at Young Achievers' School — the gym is the compound right beside it.</dd>
 
-          <dt>Parking</dt>
-          <dd>Motorcycle parking inside the compound. Limited street parking for cars along Bagumbong Road.</dd>
+          <dt>Which floor</dt>
+          <dd>Third floor of the compound at #536. Head through the gate and take the stairs all the way up.</dd>
 
           <dt>Opening hours</dt>
           <dd>Mon–Sat 7:00 AM – 10:00 PM<br>Sunday 7:00 AM – 6:00 PM</dd>
@@ -468,7 +523,7 @@
       </details>
       <details>
         <summary>Is there a joining or registration fee?</summary>
-        <p>No joining fee and no lock-in contract. You pay for a walk-in session or a membership period, and that's it.</p>
+        <p>Only if you want the member rates. A one-time <strong>₱300 annual membership</strong> unlocks them, and it's waived entirely if you take the 3-month or 6-month rate. You can also skip it completely and train at the non-member rate — ₱100 per session or ₱950 a month. Either way there's no lock-in contract.</p>
       </details>
       <details>
         <summary>What should I bring on my first visit?</summary>
@@ -476,7 +531,7 @@
       </details>
       <details>
         <summary>I've never lifted before. Will I be out of place?</summary>
-        <p>Not at all. Ask at the front desk for a free orientation on your first visit — someone will walk you through the layout and show you how the machines work. Personal training is available if you want a full program.</p>
+        <p>Not at all — the crowd here ranges from first-timers to people who've been lifting for years. Ask the front desk if you're unsure how a machine works, and if you'd like a full program, personal training starts at ₱300 for a single session.</p>
       </details>
       <details>
         <summary>Do you have lockers?</summary>
@@ -549,6 +604,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#facilities">Facilities</a></li>
         <li><a href="#rates">Rates</a></li>
+        <li><a href="#first-visit">First Visit</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#hours">Hours</a></li>
         <li><a href="#location">Location</a></li>
@@ -591,6 +647,7 @@
     <figcaption id="lbCap"></figcaption>
   </figure>
   <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
+  <p class="lb-count" id="lbCount" aria-live="polite"></p>
 </div>
 
 <!-- Structured data for Google Search & Maps -->
