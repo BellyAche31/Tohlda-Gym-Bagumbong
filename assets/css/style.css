@@ -440,7 +440,7 @@ p{margin:0 0 1.05em}
 /* ---------- CTA ---------- */
 .cta{
   position:relative;isolation:isolate;color:#fff;padding:clamp(4.5rem,9vw,7rem) 0;
-  background:var(--ink) url("../img/plate-loaded-sm.jpg") center/cover no-repeat;
+  background:var(--ink) url("../img/plate-loaded-sm.webp") center/cover no-repeat;
 }
 .cta::before{
   content:"";position:absolute;inset:0;z-index:-1;
