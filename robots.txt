@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bellyache31.github.io/Tohlda-Gym-Bagumbong/sitemap.xml
